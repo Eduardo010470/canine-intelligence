@@ -25,19 +25,31 @@ Time: {context.get('time', datetime.now().strftime('%H:%M'))}
 Last meal: {context.get('last_meal', 'Unknown')}
 Last walk: {context.get('last_walk', 'Unknown')}
 Bark type: {context.get('bark_type', 'Unknown')}
-Duration: {context.get('duration', 'Unknown')} seconds
 Intensity: {context.get('intensity', 'Unknown')}/10
-Location: {context.get('location', 'Unknown')}
-Temperature: {context.get('temperature', 'Unknown')}°C
+Temperature: {context.get('temperature', 'Unknown')}C
 
-Based on all signals, provide:
-1. Most likely intention (with % confidence)
-2. Top 10 possibilities (top_3_possibilities array with all 10)
-3. Dog Mood Index (DMI): score 0-100, energy, anxiety, stress
-4. Recommended action for owner
-5. Alert level: none/low/medium/high
-
-Respond in JSON format only."""
+Respond ONLY with this exact JSON structure, no wrapper, no markdown:
+{{
+  "most_likely": {{
+    "intention": "string describing main intention",
+    "confidence": 75
+  }},
+  "top_10": [
+    {{"intention": "string", "confidence": 75}},
+    {{"intention": "string", "confidence": 60}}
+  ],
+  "dog_mood_index": {{
+    "score": 65,
+    "mood": "string describing mood",
+    "energy": 70,
+    "anxiety": 30,
+    "stress": 25,
+    "play_drive": 60,
+    "walk_need": 80
+  }},
+  "recommended_action": "string with immediate recommendation",
+  "alert_level": "low"
+}}"""
 
     response = client.messages.create(
         model="claude-sonnet-4-6",
