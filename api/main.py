@@ -32,7 +32,7 @@ Temperature: {context.get('temperature', 'Unknown')}°C
 
 Based on all signals, provide:
 1. Most likely intention (with % confidence)
-2. Top 3 possibilities
+2. Top 10 possibilities (top_3_possibilities array with all 10)
 3. Dog Mood Index (DMI): score 0-100, energy, anxiety, stress
 4. Recommended action for owner
 5. Alert level: none/low/medium/high
