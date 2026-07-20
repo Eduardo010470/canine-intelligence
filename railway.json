@@ -1,10 +1,6 @@
 {
-  "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "pip3 install -r api/requirements.txt"
-  },
   "deploy": {
-    "startCommand": "cd api && gunicorn main:app",
+    "startCommand": "cd api && gunicorn main:app --bind 0.0.0.0:$PORT",
     "restartPolicyType": "ON_FAILURE"
   }
 }
