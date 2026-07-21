@@ -28,7 +28,7 @@ Bark type: {context.get('bark_type', 'Unknown')}
 Intensity: {context.get('intensity', 'Unknown')}/10
 Temperature: {context.get('temperature', 'Unknown')}C
 
-Respond ONLY with this exact JSON structure, no wrapper, no markdown:
+Language: {context.get("language", "pt")}. Respond ONLY in the language specified: Brazilian Portuguese if language=pt, English if language=en. Use this exact JSON structure, no wrapper, no markdown:
 {{
   "most_likely": {{
     "intention": "string describing main intention",
