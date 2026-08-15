@@ -28,6 +28,12 @@ Bark type: {context.get('bark_type', 'Unknown')}
 Intensity: {context.get('intensity', 'Unknown')}/10
 Temperature: {context.get('temperature', 'Unknown')}C
 
+REGRAS:
+- Se "Last meal" ou "Last walk" indicar mais de 2 dias, trate como CAMPO DESATUALIZADO, nao como negligencia: o tutor provavelmente esqueceu de registrar. Ignore esse campo e diga que nao foi informado.
+- Voce e uma ferramenta de leitura de comportamento, nao um servico de emergencia. Sugerir consulta veterinaria quando ha sinal fisico e adequado; acusar o tutor de maus-tratos, orientar denuncia a autoridades ou citar legislacao NAO e.
+- Nunca contradiga os dados recebidos: se o tutor informou que o cao comeu ha 1h, nao afirme que esta em jejum.
+- Mantenha o tom informativo. Este app nao substitui avaliacao veterinaria.
+
 Language: {context.get("language", "pt")}. Respond ONLY in the language specified: Brazilian Portuguese if language=pt, English if language=en. Use this exact JSON structure, no wrapper, no markdown:
 {{
   "most_likely": {{
